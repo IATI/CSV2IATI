@@ -45,10 +45,10 @@ Install mod_wsgi
     
     $ apt-get install libapache2-mod-wsgi
 
-Copy csviati.wsgi from the main directory to the appropriate folder in your web server directory, e.g. ``/var/www/csviatimodel``
+Copy wsgi.py from the main directory to the appropriate folder in your web server directory, e.g. ``/var/www/csviatimodel``
 
     
-    $ cp csviatimodel.wsgi /var/www/csviatimodel/csviatimodel.wsgi
+    $ cp wsgi.py /var/www/csviatimodel/wsgi.py
 
 Edit the file to make sure the paths are correct for your web server
 
