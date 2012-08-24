@@ -122,7 +122,7 @@ DEFAULT_MODEL =
             'label': 'Name (text) of the sector'
         'code':
             'label': 'Code for the sector'
-        'vocab':
+        'vocabulary':
             'label': 'Sector code vocabulary'
     transaction:
       datatype: 'transaction'
