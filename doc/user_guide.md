@@ -38,7 +38,7 @@ Accessing the tool
 
 To access the tool, visit [http://csvconverter.aidinfolabs.org](http://csvconverter.aidinfolabs.org)
 
-If you have any questions about how to use the tool or queries about implementation, please contact Mandy Burrows at [mandy.burrows@devinit.org](mailto:mandy.burrows@devinit.org)
+If you have any questions about how to use the tool or queries about implementation, please contact The IATI support team at [support@iatistandard.org](mailto:support@iatistandard.org)
 
 Technical preconditions for the data
 ------------------------------------
