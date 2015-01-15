@@ -7,8 +7,6 @@ MarkupSafe==0.23
 SQLAlchemy==0.9.8
 Werkzeug==0.9.6
 chardet==2.3.0
-configparser==3.5.0b2
 itsdangerous==0.24
 ordereddict==1.1
 unittest2==0.8.0
-wsgiref==0.1.2
