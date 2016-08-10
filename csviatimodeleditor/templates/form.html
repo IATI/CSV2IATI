@@ -24,14 +24,14 @@
 <div id="frontpage_left">
 <div id="login_register_forms_introbox">
 <p>&nbsp;</p>
-<p>To get started, login or register below. (It's free.)</p>
+<p>To get started, login or register below. This tool is scheduled for decommissioning - follow the link above for more information.</p>
 <p>For guidance, see the <a href="{{url_for('docs', docname='user_guide.html')}}">User Guide</a></p>
 </div>
 
 <div id="login_register_forms_container">
 <fieldset name="login">
 <legend>Login</legend>
-<p><span style="color:red">NB: This is version 2 of the CSV conversion tool.</span> Users and models have <strong>not</strong> been migrated from the old version, so please sign up for a new account. Please contact <a href="mailto:support@iatistandard.org">support@iatistandard.org</a> if you need support with transferring models.</p>
+<p><span style="color:red">PLEASE NOTE: the CSV2IATI tool is scheduled to be decomissioned.</span> The tool will <strong>not</strong> be switched off until <strong>every</strong> user has migrated to another tool. Please see <a href"http://www.aidtransparency.net/news/iati-publishing-tool-csv2iati-to-be-decommissioned">here</a> for more information, and contact <a href="mailto:support@iatistandard.org">support@iatistandard.org</a> if you have any questions, or need support with migrating.</p>
 <form method="post" action="{{url_for('login')}}">
 <input name="_csrf_token" type="hidden" value="{{ csrf_token() }}" />
 <dl>
@@ -59,6 +59,24 @@
 <dd><input type="text" name="email" id="email" /></dd>
 <dt> </dt>
 <dd><input type="submit" value="Register" /></dd>
+
+<!-- New 'Register' form - disabled for decommission
+<legend>Register</legend>
+<p><span style="color:red">Due to the scheduled decomissioning of CSV2IATI, new users are no longer accepted.</span> Please contact <a href="mailto:support@iatistandard.org">support@iatistandard.org</a> if you have any questions, or need support with migrating data from an existing account.</p>
+<form method="post" action="{{url_for('register')}}">
+<input name="_csrf_token" type="hidden" value="{{ csrf_token() }}" />
+<dl>
+<dt><label for="username">Username</label></dt>
+<dd><input disabled="true" type="text" name="username" id="username"/></dd>
+<dt><label for="password">Password</label></dt>
+<dd><input disabled="true" type="password" name="password" id="password" /></dd>
+<dt><label for="user_name">Your name</label></dt>
+<dd><input disabled="true" type="text" name="user_name" id="user_name" /></dd>
+<dt><label for="email">Your email address</label></dt>
+<dd><input disabled="true" type="text" name="email" id="email" /></dd>
+<dt> </dt>
+<dd><input type="submit" value="Register" /></dd>
+-->
 </dl>
 </form>
 </fieldset>
