@@ -31,7 +31,7 @@
 <div id="login_register_forms_container">
 <fieldset name="login">
 <legend>Login</legend>
-<p><span style="color:red">PLEASE NOTE: the CSV2IATI tool is scheduled to be decomissioned.</span> The tool will <strong>not</strong> be switched off until <strong>every</strong> user has migrated to another tool. Please see <a href"http://www.aidtransparency.net/news/iati-publishing-tool-csv2iati-to-be-decommissioned">here</a> for more information, and contact <a href="mailto:support@iatistandard.org">support@iatistandard.org</a> if you have any questions, or need support with migrating.</p>
+<p><span style="color:red">PLEASE NOTE: the CSV2IATI tool is scheduled to be decommissioned.</span> The tool will <strong>not</strong> be switched off until <strong>every</strong> user has migrated to another tool. Please see <a href"http://www.aidtransparency.net/news/iati-publishing-tool-csv2iati-to-be-decommissioned">here</a> for more information, and contact <a href="mailto:support@iatistandard.org">support@iatistandard.org</a> if you have any questions, or need support with migrating.</p>
 <form method="post" action="{{url_for('login')}}">
 <input name="_csrf_token" type="hidden" value="{{ csrf_token() }}" />
 <dl>
@@ -62,7 +62,7 @@
 
 <!-- New 'Register' form - disabled for decommission
 <legend>Register</legend>
-<p><span style="color:red">Due to the scheduled decomissioning of CSV2IATI, new users are no longer accepted.</span> Please contact <a href="mailto:support@iatistandard.org">support@iatistandard.org</a> if you have any questions, or need support with migrating data from an existing account.</p>
+<p><span style="color:red">Due to the scheduled decommissioning of CSV2IATI, new users are no longer accepted.</span> Please contact <a href="mailto:support@iatistandard.org">support@iatistandard.org</a> if you have any questions, or need support with migrating data from an existing account.</p>
 <form method="post" action="{{url_for('register')}}">
 <input name="_csrf_token" type="hidden" value="{{ csrf_token() }}" />
 <dl>
