@@ -24,14 +24,14 @@
 <div id="frontpage_left">
 <div id="login_register_forms_introbox">
 <p>&nbsp;</p>
-<p>This tool is being decommissioned and is due to be shut down March 30th 2018.</p>
+<p>This tool is being decommissioned and is due to be shut down on March 30th 2018.</p>
 <p>For guidance, see the <a href="{{url_for('docs', docname='user_guide.html')}}">User Guide</a></p>
 </div>
 
 <div id="login_register_forms_container">
 <fieldset name="login">
 <legend>Login</legend>
-<p><span style="color:red"><strong>PLEASE NOTE:</strong> The CSV2IATI tool is being decommissioned.</span>  Please see <a href"http://www.aidtransparency.net/news/iati-publishing-tool-csv2iati-to-be-decommissioned">here</a> for more information, and contact <a href="mailto:support@iatistandard.org">support@iatistandard.org</a> if you have any questions, or need support with migrating.</p>
+<p><span style="color:red"><strong>PLEASE NOTE:</strong> CSV2IATI is being decommissioned.</span></p>
 <form method="post" action="{{url_for('login')}}">
 <input name="_csrf_token" type="hidden" value="{{ csrf_token() }}" />
 <dl>
@@ -44,7 +44,11 @@
 </dl>
 </form>
 </fieldset>
-
+<fieldset name="register">
+<legend>Register</legend>
+<p>Registrations have been disabled in-line with the decommissioning process.</p>
+<p>Please see <a href="https://discuss.iatistandard.org/t/roadmaps-for-iati-technical-team-products/733">here</a> for more information, and contact <a href="mailto:support@iatistandard.org">support@iatistandard.org</a> if you have any questions, or need support with migrating.</p>
+</fieldset>
 </div>
 </div>
 
