@@ -44,42 +44,7 @@
 </dl>
 </form>
 </fieldset>
-<fieldset name="register">
-<legend>Register</legend>
-<form method="post" action="{{url_for('register')}}">
-<input name="_csrf_token" type="hidden" value="{{ csrf_token() }}" />
-<dl>
-<dt><label for="username">Username</label></dt>
-<dd><input type="text" name="username" id="username"/></dd>
-<dt><label for="password">Password</label></dt>
-<dd><input type="password" name="password" id="password" /></dd>
-<dt><label for="user_name">Your name</label></dt>
-<dd><input type="text" name="user_name" id="user_name" /></dd>
-<dt><label for="email">Your email address</label></dt>
-<dd><input type="text" name="email" id="email" /></dd>
-<dt> </dt>
-<dd><input type="submit" value="Register" /></dd>
 
-<!-- New 'Register' form - disabled for decommission
-<legend>Register</legend>
-<p><span style="color:red">Due to the scheduled decommissioning of CSV2IATI, new users are no longer accepted.</span> Please contact <a href="mailto:support@iatistandard.org">support@iatistandard.org</a> if you have any questions, or need support with migrating data from an existing account.</p>
-<form method="post" action="{{url_for('register')}}">
-<input name="_csrf_token" type="hidden" value="{{ csrf_token() }}" />
-<dl>
-<dt><label for="username">Username</label></dt>
-<dd><input disabled="true" type="text" name="username" id="username"/></dd>
-<dt><label for="password">Password</label></dt>
-<dd><input disabled="true" type="password" name="password" id="password" /></dd>
-<dt><label for="user_name">Your name</label></dt>
-<dd><input disabled="true" type="text" name="user_name" id="user_name" /></dd>
-<dt><label for="email">Your email address</label></dt>
-<dd><input disabled="true" type="text" name="email" id="email" /></dd>
-<dt> </dt>
-<dd><input type="submit" value="Register" /></dd>
--->
-</dl>
-</form>
-</fieldset>
 </div>
 </div>
 
