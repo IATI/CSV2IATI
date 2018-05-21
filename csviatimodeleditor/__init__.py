@@ -151,7 +151,7 @@ def user_name():
 
 @app.route("/")
 def decommissioned_page():
-    return render_template('shutdown.html')
+    return render_template('layout.html')
 
 @app.route("/decommissioned_login")
 def index():

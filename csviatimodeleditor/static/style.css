@@ -5,7 +5,7 @@ color: #333333;
     font-family: "Trebuchet MS",sans-serif;
     font-size: 14px;
     line-height: 19px;
-  vertical-align:top;	
+  vertical-align:top;
   margin: 0 0 0 0;
 }
 
@@ -95,8 +95,6 @@ h1.title {
 	color:#333;
         font-weight: 200;
 	margin-bottom:0px;
-	background-image: url("images/iati.png");
-	background-repeat: no-repeat;
 	height:90px;
 /*	text-indent:250px;*/
 }
@@ -106,9 +104,9 @@ h1.title span {
     margin-top: 40px;
 */
     display:block;
-    width:600px;
+    width:1000px;
     padding-top:40px;
-    padding-left: 280px;
+    padding-left: 150px;
     /*margin: 0px auto 0 auto;*/
     vertical-align: baseline;
 }
@@ -321,7 +319,7 @@ form dl {
     width:90%;
 }
 #login_register_forms_introbox {
-    text-align:center;	
+    text-align:center;
     width: 100%;
     margin: 15px auto 15px auto;
     padding:10px 0px 10px 0px;

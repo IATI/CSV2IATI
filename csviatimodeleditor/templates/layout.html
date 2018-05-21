@@ -8,7 +8,6 @@
   <script src="{{ url_for('static', filename='jquery.tmpl.min.js') }}"></script>
   <script src="{{ url_for('static', filename='jquery.form.min.js') }}"></script>
   <script src="{{ url_for('static', filename='jquery.sticky.js') }}"></script>
-  <title>CSV2IATI</title>
   <link href="{{ url_for('static', filename='style.css') }}" media="screen" rel="stylesheet" type="text/css" />
   <link href="{{ url_for('static', filename='jquery-ui.css') }}" media="screen" rel="stylesheet" type="text/css" />
   {% block extrahead %}
@@ -16,11 +15,10 @@
   </head>
 <body>
 <div id="page-wrapper">
-<div id="beta">
-</div>
 <div id="content">
-<h1 class="title"><span style="color:red"><a href="https://discuss.iatistandard.org/t/update-csv2iati-decommissioning/905" style="color:red"><strong>NOTE:</strong> CSV2IATI BEING DECOMMISSIONED</a></span></h1>
+<h1 class="title"><span style="color:red"><a href="https://discuss.iatistandard.org/t/update-csv2iati-decommissioning/905/14" style="color:red">CSV2IATI HAS BEEN DECOMMISSIONED AND CAN NO LONGER BE USED</a></span></h1>
 <hr class="title" />
+<p style="text-align:center">For any questions please contact <a href="mailto:support@iatistandard.org">IATI support</a></p>
 {% if logged_in %}
 <div class="nav">
 <ul>
@@ -42,6 +40,7 @@
     </ul>
 {% endwith %}
 {% block body %}{% endblock %}
+<div style="text-align:center"><a href="https://www.aidtransparency.net/privacy-policy">Privacy and Cookie Policy</a></div>
 </div>
 <script type="text/javascript">
 $('.flashes li').fadeIn('slow');
