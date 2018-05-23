@@ -57,8 +57,8 @@ class IATIModel(db.Model):
     model_content = db.Column(UnicodeText)
     csv_id = db.Column(UnicodeText)
     model_created = db.Column(Date)
-    
-    def __init__(self, **kwargs): 
+
+    def __init__(self, **kwargs):
         super(IATIModel,self).__init__(**kwargs)
         self.model_created = datetime.utcnow()
 
@@ -93,7 +93,7 @@ class User(db.Model):
     admin = db.Column(Boolean)
     user_created = db.Column(Date)
     pw_hash = db.Column(db.String())
-    
+
     def __init__(self, username, password, **kwargs):
         super(User,self).__init__(**kwargs)
         self.username = username
@@ -150,6 +150,10 @@ def user_name():
         return False
 
 @app.route("/")
+def decommissioned_page():
+    return render_template('layout.html')
+
+@app.route("/decommissioned_login")
 def index():
     if 'username' in session:
         user_id = session['user_id']
@@ -178,19 +182,19 @@ def login():
     if request.method == 'POST':
         username = escape(request.form['username'])
         password = escape(request.form['password'])
-        
+
         if ((username == APP_ADMIN_USERNAME) and (username != "YOUR_ADMIN_USERNAME_HERE (MAKE THIS REALLY SECRET)") and (password == APP_ADMIN_PASSWORD)):
             session['username'] = escape(request.form['username'])
             session['user_id'] = '0'
             session['user_name'] = 'Master admin user'
             session['admin'] = '1'
             flash('Hello, admin user.', 'good')
-            return redirect(url_for('index'))     
-        
+            return redirect(url_for('index'))
+
         u = User(username,password)
         getuser = User.query.filter_by(username=username).first()
         #u = User.query.filter_by(username=username, password=User.check_password(password)).first()
-        
+
         ## found a user
         if ((getuser) and (getuser.check_password(password))):
             session['username'] = escape(request.form['username'])
@@ -206,7 +210,7 @@ def login():
         return redirect(url_for('index'))
     flash("Please log in.", 'bad')
     return redirect(url_for('index'))
-    
+
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
@@ -251,9 +255,9 @@ def create_model():
                         flash('Error: The headers in your data appear to be blank. Please check that you have headers in the first row of your data.', 'bad persist')
                         errors = True
 
-                if errors:                
+                if errors:
                     return redirect(url_for('index'))
-                        
+
                 result = chardet.detect(reopen_for_decoding.read())
                 csv_encoding = result['encoding']
                 # csv headers are being converted into the csv encoding here. Need to ensure that the conversion API is also reading the headers according to this character encoding.
@@ -269,7 +273,7 @@ def create_model():
                 return redirect(url_for('model', id=newmodel.id))
             else:
                 flash('Please supply a model name and a file in the CSV format.', 'bad persist')
-                return redirect(url_for('index'))                
+                return redirect(url_for('index'))
         else:
             flash('Please supply a file.', 'bad')
             return redirect(url_for('index'))
@@ -311,7 +315,7 @@ def model_change_csv(id=id, csv_id=''):
                 reopen_for_headers.close()
                 reopen_for_decoding=(open(os.path.join(app.config['UPLOAD_FOLDER'], filename), 'rU'))
                 errors = False
-                
+
                 if not columnnames:
                     flash('Could not detect column names from your data. Maybe your file is empty?', 'bad persist')
                     errors = True
@@ -330,12 +334,12 @@ def model_change_csv(id=id, csv_id=''):
                         flash('Error: The headers in your data appear to be blank. Please check that you have headers in the first row of your data.', 'bad persist')
                         errors = True
 
-                if errors:                
+                if errors:
                     return redirect(url_for('model', id=id))
-                        
+
                 result = chardet.detect(reopen_for_decoding.read())
                 csv_encoding = result['encoding']
-                
+
                 csv_headers = json.dumps(columnnames,encoding=csv_encoding)
 
                 #csv_headers = ', '.join('"%s"' % unicode(header,csv_encoding) for header in columnnames)
@@ -397,7 +401,7 @@ def model_convert_download(id):
 @app.route('/model/convert/<id>')
 def model_convert(id=id):
     if ('username' in session):
-        if (id):        
+        if (id):
             getmodel = IATIModel.query.filter_by(id=id).first_or_404()
             if getmodel is not None:
                 if (('admin' in session) or ((session['user_id'])==int(getmodel.model_owner))):
@@ -461,8 +465,8 @@ def model_convert(id=id):
 @app.route('/model/')
 @app.route('/model/<id>', methods=['GET', 'POST'])
 @app.route('/model/<id>.<responsetype>', methods=['GET'])
-def model(id='',responsetype=''):  
-    if (responsetype and (responsetype=='json')):        
+def model(id='',responsetype=''):
+    if (responsetype and (responsetype=='json')):
         getmodel = IATIModel.query.filter_by(id=id).first_or_404()
         if getmodel is not None:
             if getmodel.model_content is not None:
@@ -473,7 +477,7 @@ def model(id='',responsetype=''):
     if ('username' in session):
         if (id):
             if request.method == 'GET':
-                # Get model details        
+                # Get model details
                 getmodel = IATIModel.query.filter_by(id=id).first_or_404()
 		getcsv = CSVFile.query.filter_by(id=getmodel.csv_id).first_or_404()
 		getallcsv = CSVFile.query.filter_by(csv_owner=unicode(session['user_id']))
@@ -580,7 +584,7 @@ def user(id=''):
                     if password != '':
                         u.set_password(password)
 
-                
+
                 username = escape(request.form['username'])
                 if username != u.username:
                     user_check = User.query.filter_by(username=username).first()
@@ -597,8 +601,8 @@ def user(id=''):
                 return render_template('user.html', user=u, admin=is_admin(), logged_in=is_logged_in())
             else:
                 flash("You do not have permission to edit that user's details.", 'bad')
-                return redirect(url_for('index'))                
-                
+                return redirect(url_for('index'))
+
         else:
             users = User.query.all()
             return render_template('users.html', users=users,admin=is_admin(), logged_in=is_logged_in())
@@ -623,7 +627,7 @@ def register():
         u = User(username,password,user_name=user_name,email_address=email_address,admin=admin)
         db.session.add(u)
         db.session.commit()
-        
+
         session['username'] = u.username
         session['user_id'] = u.id
         session['user_name'] = u.user_name
@@ -681,5 +685,5 @@ if __name__ == "__main__":
             os.makedirs(UPLOAD_FOLDER)
         except Exception, e:
             print "Failed:", e
-            print "Couldn't create directory"        
+            print "Couldn't create directory"
     app.run(debug=True, threaded=True)
