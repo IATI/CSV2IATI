@@ -1,12 +1,12 @@
 setuptools>=0.7
 
-Flask==0.10.1
-Flask-SQLAlchemy==1.0
-Jinja2==2.7.1
-MarkupSafe==0.18
-SQLAlchemy==0.8.2
-Werkzeug==0.9.4
-chardet==1.0.1
-itsdangerous==0.23
+Flask==0.12
+Flask-SQLAlchemy==2.1
+Jinja2==2.8.1
+MarkupSafe==0.23
+SQLAlchemy==1.1.4
+Werkzeug==0.11.15
+chardet==2.3.0
+itsdangerous==0.24
 ordereddict==1.1
-unittest2==0.5.1
+unittest2==1.1.0
